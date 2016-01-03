@@ -169,13 +169,13 @@ start = expr / ordering_term
 value =
   v: ( whitespace
        ( ( x: literal_value
-           { return { literal: x } } )
+           { return { value: x } } )
        / ( b: bind_parameter
            { return { bind: b } } )
 ////       / ( t: ( table_name dot column_name )
 ////           { return { column: t[2], table: t[1] } } )
        / ( c: column_name
-           { return { column: c } } )
+           { return { fieldName: c } } )
        / ( unary_operator expr )
 ////       / call_function
        / ( whitespace lparen expr whitespace rparen )
@@ -495,20 +495,20 @@ end_of_input = ''
 ////ALL = whitespace1 "ALL"
 ////ALTER = whitespace1 "ALTER"
 ////ANALYZE = whitespace1 "ANALYZE"
-AND = whitespace1 "AND"
-AS = whitespace1 "AS"
-ASC = whitespace1 "ASC"
+AND = whitespace1 "AND"i
+AS = whitespace1 "AS"i
+ASC = whitespace1 "ASC"i
 ////ATTACH = whitespace1 "ATTACH"
 ////AUTOINCREMENT = whitespace1 "AUTOINCREMENT"
 ////BEFORE = whitespace1 "BEFORE"
 ////BEGIN = whitespace1 "BEGIN"
-BETWEEN = whitespace1 "BETWEEN"
+BETWEEN = whitespace1 "BETWEEN"i
 ////BY = whitespace1 "BY"
 ////CASCADE = whitespace1 "CASCADE"
 ////CASE = whitespace1 "CASE"
 ////CAST = whitespace1 "CAST"
 ////CHECK = whitespace1 "CHECK"
-COLLATE = whitespace1 "COLLATE"
+COLLATE = whitespace1 "COLLATE"i
 ////COLUMN = whitespace1 "COLUMN"
 ////COMMIT = whitespace1 "COMMIT"
 ////CONFLICT = whitespace1 "CONFLICT"
@@ -522,16 +522,16 @@ COLLATE = whitespace1 "COLLATE"
 ////DEFERRED = whitespace1 "DEFERRED"
 ////DELETE =
 ////  whitespace "DELETE"
-DESC = whitespace1 "DESC"
+DESC = whitespace1 "DESC"i
 ////DETACH = whitespace1 "DETACH"
 ////DISTINCT = whitespace1 "DISTINCT"
 ////DROP = whitespace1 "DROP"
 E =
-  "E"
+  "E"i
 ////EACH = whitespace1 "EACH"
 ////ELSE = whitespace1 "ELSE"
 ////END = whitespace1 "END"
-ESCAPE = whitespace1 "ESCAPE"
+ESCAPE = whitespace1 "ESCAPE"i
 ////EXCEPT = whitespace1 "EXCEPT"
 ////EXCLUSIVE = whitespace1 "EXCLUSIVE"
 ////EXISTS = whitespace1 "EXISTS"
@@ -547,7 +547,7 @@ ESCAPE = whitespace1 "ESCAPE"
 ////IF = whitespace1 "IF"
 ////IGNORE = whitespace1 "IGNORE"
 ////IMMEDIATE = whitespace1 "IMMEDIATE"
-IN = whitespace1 "IN"
+IN = whitespace1 "IN"i
 ////INDEX = whitespace1 "INDEX"
 ////INDEXED = whitespace1 "INDEXED"
 ////INITIALLY = whitespace1 "INITIALLY"
@@ -557,23 +557,23 @@ IN = whitespace1 "IN"
 ////INSTEAD = whitespace1 "INSTEAD"
 ////INTERSECT = whitespace1 "INTERSECT"
 ////INTO = whitespace1 "INTO"
-IS = whitespace1 "IS"
-ISNULL = whitespace1 "ISNULL"
+IS = whitespace1 "IS"i
+ISNULL = whitespace1 "ISNULL"i
 ////JOIN = whitespace1 "JOIN"
 ////KEY = whitespace1 "KEY"
 ////LEFT = whitespace1 "LEFT"
-LIKE = whitespace1 "LIKE"
+LIKE = whitespace1 "LIKE"i
 ////LIMIT = whitespace1 "LIMIT"
 ////MATCH = whitespace1 "MATCH"
 ////NATURAL = whitespace1 "NATURAL"
 ////NO = whitespace1 "NO"
-NOT = whitespace1 "NOT"
-NOTNULL = whitespace1 "NOTNULL"
-NULL = whitespace1 "NULL"
+NOT = whitespace1 "NOT"i
+NOTNULL = whitespace1 "NOTNULL"i
+NULL = whitespace1 "NULL"i
 ////OF = whitespace1 "OF"
 ////OFFSET = whitespace1 "OFFSET"
 ////ON = whitespace1 "ON"
-OR = whitespace1 "OR"
+OR = whitespace1 "OR"i
 ////ORDER = whitespace1 "ORDER"
 ////OUTER = whitespace1 "OUTER"
 ////PLAN = whitespace1 "PLAN"
